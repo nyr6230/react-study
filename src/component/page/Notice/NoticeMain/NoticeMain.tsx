@@ -14,8 +14,6 @@ interface INotice {
     createdDate: string;
 }
 
-// test ------------------------
-
 export const NoticeMain = () => {
     //const search = useLocation();
     const { search } = useLocation();
