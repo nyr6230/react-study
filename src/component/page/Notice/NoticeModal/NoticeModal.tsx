@@ -1,6 +1,14 @@
+import { FC } from 'react';
 import { NoticeModalStyled } from './styled';
+import { useRecoilState } from 'recoil';
+import { modalState } from '../../../../stores/modalState';
 
-export const NoticeModal = () => {
+export const NoticeModal= () => {
+    const [modal, setModal] = useRecoilState<boolean>(modalState);
+
+    const handlerModal = () => {
+        setModal(!modal);
+    };
     return (
         <NoticeModalStyled>
             <div className="container">
@@ -23,7 +31,7 @@ export const NoticeModal = () => {
                 <div className={'button-container'}>
                     <button>저장</button>
                     <button>삭제</button>
-                    <button>나가기</button>
+                    <button onClick={handlerModal}>나가기</button>
                 </div>
             </div>
         </NoticeModalStyled>
